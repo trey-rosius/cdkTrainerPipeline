@@ -16,14 +16,14 @@ class PipelineStack(core.Stack):
         pipeline = pipelines.CdkPipeline(self, 'Pipeline',
 
             cloud_assembly_artifact=cloud_assembly_artifact,
-            pipeline_name='TrainerPipeline',
+            pipeline_name='CdkTrainerPipeline',
 
             source_action=cpactions.GitHubSourceAction(
                 action_name='Github',
                 output=source_artifact,
                 oauth_token=core.SecretValue.secrets_manager('trainer-github-token'),
                 owner='trey-rosius',
-                repo='cdkTrainer',
+                repo='cdkTrainerPipeline',
                 trigger=cpactions.GitHubTrigger.POLL),
 
             synth_action=pipelines.SimpleSynthAction(
