@@ -9,11 +9,13 @@ from aws_cdk import core as cdk
 # being updated to use `cdk`.  You may delete this import if you don't need it.
 from aws_cdk import core
 
-from cdk_trainer_pipeline.cdk_trainer_pipeline_stack import CdkTrainerPipelineStack
-
+from cdk_trainer_pipeline.pipeline_stack import PipelineStack
 
 app = core.App()
-CdkTrainerPipelineStack(app, "CdkTrainerPipelineStack",
+PipelineStack(app, "CdkTrainerPipeline",env={
+    
+    'account':'132260253285',
+    'region': 'us-east-2'}
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
